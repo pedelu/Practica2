@@ -154,7 +154,15 @@ ggsave("./figure/Ejercicio1.pdf",height = 5, width = 5)
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio2.pdf``.
 
 ```{r Solucion ejercicio 2}
-
+grafico1 = ggplot(data = ds,aes(x = Temp9am,y=Pressure9am)) +
+  geom_point()
+grafico1
+grafico1 + geom_point(aes(shape = RainToday))
+grafico1 + geom_point(aes(col = RainToday))
+#Como podemos ver se ve mucho mejor con la diferencia de color
+grafico2 = grafico1 + geom_point(aes(col = RainToday))
+grafico2 + ggtitle("Relación entre la temperatura y la presión")
+ggsave("./figure/Ejercicio2.pdf",height = 5, width = 5)
 ```
 
 ### **Ejercicio 3**
