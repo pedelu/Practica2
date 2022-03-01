@@ -177,7 +177,19 @@ ggsave("./figure/Ejercicio2.pdf",height = 5, width = 5)
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio3.pdf``.
 
 ```{r Solucion ejercicio 3}
-
+load("./data/iris_tidy.Rdata")
+str(iris.tidy)
+#Como vemos hay Species, Part, Measure, Value
+iris.grafico1 = ggplot(data = iris.tidy, aes(x = Species, y = Value))
+iris.grafico1 + geom_point()
+iris.grafico2 = iris.grafico1 + geom_point(aes(col = Part))
+iris.grafico2 + facet_grid(Measure~.)
+iris.grafico2 + facet_grid(.~Measure)
+#Yo creo que se ve mejor en columnas, aunque no exsiste mucha diferencia
+iris.grafico1 + 
+  geom_jitter(aes(col = Part)) +
+  facet_grid(.~Measure)
+ggsave("./figure/Ejercicio3.pdf",height = 5, width = 5)
 ```
 
 ## Gráficos de línea con **ggplot2**
