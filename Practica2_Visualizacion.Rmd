@@ -263,7 +263,17 @@ ggplot(data=Dosis.Medicina2, aes(x=Dosis, y=Efectividad, group=Complemento)) +
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio4.pdf``.
 
 ```{r Solucion ejercicio 4}
-
+load("./data/Ejercicio4_Data.Rdata")
+str(DatosEjer4)
+#Como vemos hay Fecha, Fabricante y Ventas
+grafico_base = ggplot(data = DatosEjer4, aes(x = Fecha, y = Ventas, col = Fabricante))
+grafico_base + geom_point()
+#No se ve mal del todo pero con lineas se vería mejor
+grafico_base + geom_line()
+lineas = grafico_base + geom_line(aes(linetype = Fabricante))
+lineas
+lineas + ggtitle("Ventas mensuales de diferentes compañías tecnológicas")
+ggsave("./figure/Ejercicio4.pdf",height = 5, width = 5)
 ```
 
 ## Barras de error con **ggplot2**
