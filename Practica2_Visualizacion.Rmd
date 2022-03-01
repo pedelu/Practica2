@@ -134,7 +134,15 @@ p2
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio1.pdf``.
 
 ```{r Solucion ejercicio 1}
-
+load("./data/weatherAUS.RData")
+grafico1 = ggplot(data = ds,aes(x = MinTemp,y=MaxTemp))
+grafico1 + geom_point()
+grafico2 = ggplot(data = ds,aes(x = MinTemp,y=MaxTemp, col = RainTomorrow))
+grafico2 = grafico2 + geom_point()
+grafico2
+grafico3 = grafico2 + ggtitle("Dispersion de temperatura máxima y mínima")
+grafico3
+ggsave("./figure/Ejercicio1.pdf",height = 5, width = 5)
 ```
 
 ### **Ejercicio 2**
