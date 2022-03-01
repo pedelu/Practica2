@@ -1,8 +1,8 @@
 ---
 title: "Práctica 2. Visualización de Datos"
 subtitle: "Tratamiento de Datos, Grado en Ciencia de Datos- UV"
-#author: "Marcelino Martínez Sober, Jordi Muñoz Mari, Luis Gómez Chova, Juan Gómez Sanchis"
-#date: "`r Sys.Date()`"
+author: "Pedro de Luna Huerta"
+date: "`r Sys.Date()`"
 output:
   html_document:
     echo: yes
